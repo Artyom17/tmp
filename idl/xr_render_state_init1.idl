@@ -6,5 +6,5 @@
 dictionary XRRenderStateInit {
   double depthNear;
   double depthFar;
-  sequence<XRLayer>? baseLayer;
+  sequence<XRLayer>? layers;
 };

@@ -10,5 +10,5 @@
 ] interface XRRenderState {
   readonly attribute double depthNear;
   readonly attribute double depthFar;
-  readonly attribute sequence<XRLayer>? baseLayer;
+  readonly attribute sequence<XRLayer>? layers;
 };
