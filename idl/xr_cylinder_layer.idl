@@ -1,0 +1,33 @@
+// Copyright 2017 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+typedef (WebGLRenderingContext or WebGL2RenderingContext) XRWebGLRenderingContext;
+
+// https://immersive-web.github.io/webxr/#xrwebgllayer-interface
+[
+    SecureContext,
+    Exposed=Window,
+    RuntimeEnabled=WebXR,
+    Constructor(XRSession session, XRWebGLRenderingContext context, optional XRCylinderLayerInit layerInit),
+    RaisesException=Constructor
+] interface XRCylinderLayer : XRLayer {
+  [ImplementedAs=getXRWebGLRenderingContext] readonly attribute XRWebGLRenderingContext context;
+  readonly attribute boolean antialias;
+  readonly attribute boolean alpha;
+
+  readonly attribute WebGLTexture texture;
+
+  readonly attribute GLsizei textureSizeX;
+  readonly attribute GLsizei textureSizeY;
+
+  readonly attribute DOMPointReadOnly center;
+  readonly attribute DOMPointReadOnly view;
+
+  attribute boolean hidden;
+
+  void updateTextureImages();
+  void setTexture(WebGLTexture texture, GLsizei sizeX, GLsizei sizeY);
+  void setCenter(DOMPointReadOnly center);
+  void setView(DOMPointReadOnly view);
+};
